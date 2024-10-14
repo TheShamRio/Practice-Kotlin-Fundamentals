@@ -29,6 +29,7 @@ fun printNotificationSummary(numberOfMessages: Int) {
     }
 }*/
 
+/*
 fun main() {
     val child = 5
     val adult = 28
@@ -48,4 +49,31 @@ fun ticketPrice(age: Int, isMonday: Boolean): Int {
         age in 61..100 -> 20 // Билет для пожилых людей
         else -> -1 // Некорректный возраст
     }
+}*/
+
+fun main() {
+    // Цельсий в Фаренгейт
+    printFinalTemperature(27.0, "Celsius", "Fahrenheit") { celsius ->
+        (celsius * 9 / 5) + 32
+    }
+
+    // Кельвин в Цельсий
+    printFinalTemperature(350.0, "Kelvin", "Celsius") { kelvin ->
+        kelvin - 273.15
+    }
+
+    // Фаренгейт в Кельвин
+    printFinalTemperature(10.0, "Fahrenheit", "Kelvin") { fahrenheit ->
+        (fahrenheit - 32) * 5 / 9 + 273.15
+    }
+}
+
+fun printFinalTemperature(
+    initialMeasurement: Double,
+    initialUnit: String,
+    finalUnit: String,
+    conversionFormula: (Double) -> Double
+) {
+    val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // две десятичные цифры
+    println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
 }
