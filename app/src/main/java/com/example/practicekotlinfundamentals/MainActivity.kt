@@ -105,6 +105,7 @@ fun main() {
     println("Популярность: ${if (song2.isPopular) "популярна" else "не популярна"}")
 }*/
 
+/*
 fun main() {
     val amanda = Person("Amanda", 33, "play tennis", null)
     val atiqah = Person("Atiqah", 28, "climb", amanda)
@@ -125,4 +126,54 @@ class Person(val name: String, val age: Int, val hobby: String?, val referrer: P
             println("Doesn't have a referrer.")
         }
     }
+}*/
+
+open class Phone(var isScreenLightOn: Boolean = false) {
+    open fun switchOn() {
+        isScreenLightOn = true
+    }
+
+    fun switchOff() {
+        isScreenLightOn = false
+    }
+
+    fun checkPhoneScreenLight() {
+        val phoneScreenLight = if (isScreenLightOn) "on" else "off"
+        println("The phone screen's light is $phoneScreenLight.")
+    }
+}
+
+class FoldablePhone(var isFolded: Boolean = true) : Phone() {
+    override fun switchOn() {
+        if (!isFolded) {
+            isScreenLightOn = true
+        } else {
+            println("Cannot turn on the screen while the phone is folded.")
+        }
+    }
+
+    fun fold() {
+        isFolded = true
+        switchOff() // Выключаем экран при сворачивании
+        println("The phone is now folded.")
+    }
+
+    fun unfold() {
+        isFolded = false
+        println("The phone is now unfolded.")
+    }
+}
+
+fun main() {
+    val foldablePhone = FoldablePhone()
+
+    foldablePhone.checkPhoneScreenLight() // Ожидаем: экран выключен
+    foldablePhone.switchOn() // Ожидаем: экран не включится, так как телефон сложен
+
+    foldablePhone.unfold() // Раскрываем телефон
+    foldablePhone.switchOn() // Теперь экран включится
+    foldablePhone.checkPhoneScreenLight() // Ожидаем: экран включен
+
+    foldablePhone.fold() // Складываем телефон, экран выключается
+    foldablePhone.checkPhoneScreenLight() // Ожидаем: экран выключен
 }
