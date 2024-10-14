@@ -51,6 +51,7 @@ fun ticketPrice(age: Int, isMonday: Boolean): Int {
     }
 }*/
 
+/*
 fun main() {
     // Цельсий в Фаренгейт
     printFinalTemperature(27.0, "Celsius", "Fahrenheit") { celsius ->
@@ -76,4 +77,30 @@ fun printFinalTemperature(
 ) {
     val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // две десятичные цифры
     println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
+}*/
+
+class Song(
+    val title: String,
+    val artist: String,
+    val year: Int,
+    var playCount: Int
+) {
+    val isPopular: Boolean
+        get() = playCount >= 1000
+
+    fun printDescription() {
+        println("\"$title\" в исполнении $artist было выпущено в $year.")
+    }
+}
+
+fun main() {
+    // Пример использования класса Song
+    val song1 = Song("Imagine", "John Lennon", 1971, 500)
+    val song2 = Song("Blinding Lights", "The Weeknd", 2019, 1200)
+
+    song1.printDescription()
+    println("Популярность: ${if (song1.isPopular) "популярна" else "не популярна"}")
+
+    song2.printDescription()
+    println("Популярность: ${if (song2.isPopular) "популярна" else "не популярна"}")
 }
