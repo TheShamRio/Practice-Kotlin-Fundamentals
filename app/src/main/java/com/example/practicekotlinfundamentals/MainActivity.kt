@@ -128,6 +128,7 @@ class Person(val name: String, val age: Int, val hobby: String?, val referrer: P
     }
 }*/
 
+/*
 open class Phone(var isScreenLightOn: Boolean = false) {
     open fun switchOn() {
         isScreenLightOn = true
@@ -176,4 +177,16 @@ fun main() {
 
     foldablePhone.fold() // Складываем телефон, экран выключается
     foldablePhone.checkPhoneScreenLight() // Ожидаем: экран выключен
+}*/
+fun main() {
+    val winningBid = Bid(5000, "Private Collector")
+
+    println("Item A is sold at ${auctionPrice(winningBid, 2000)}.")
+    println("Item B is sold at ${auctionPrice(null, 3000)}.")
+}
+
+class Bid(val amount: Int, val bidder: String)
+
+fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
+    return bid?.amount ?: minimumPrice
 }
