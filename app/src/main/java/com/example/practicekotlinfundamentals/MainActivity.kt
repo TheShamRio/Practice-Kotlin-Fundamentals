@@ -42,5 +42,10 @@ fun main() {
 }
 
 fun ticketPrice(age: Int, isMonday: Boolean): Int {
-    // Fill in the code.
+    return when {
+        age in 0..12 -> 15 // Детский билет
+        age in 13..60 -> if (isMonday) 25 else 30 // Стандартный билет: скидка в понедельник
+        age in 61..100 -> 20 // Билет для пожилых людей
+        else -> -1 // Некорректный возраст
+    }
 }
