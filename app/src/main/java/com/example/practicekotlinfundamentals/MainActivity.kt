@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.practicekotlinfundamentals.ui.theme.PracticeKotlinFundamentalsTheme
 
-fun main() {
+/*fun main() {
     val morningNotification = 51
     val eveningNotification = 135
 
@@ -22,9 +22,25 @@ fun main() {
 }
 
 fun printNotificationSummary(numberOfMessages: Int) {
-    if (numberOfMessages > 99) {
+    if (numberOfMessages >= 100) {
         println("Your phone is blowing up! You have 99+ notifications.")
     } else {
         println("You have $numberOfMessages notifications.")
     }
+}*/
+
+fun main() {
+    val child = 5
+    val adult = 28
+    val senior = 87
+
+    val isMonday = true
+
+    println("The movie ticket price for a person aged $child is \$${ticketPrice(child, isMonday)}.")
+    println("The movie ticket price for a person aged $adult is \$${ticketPrice(adult, isMonday)}.")
+    println("The movie ticket price for a person aged $senior is \$${ticketPrice(senior, isMonday)}.")
+}
+
+fun ticketPrice(age: Int, isMonday: Boolean): Int {
+    // Fill in the code.
 }
